@@ -3,10 +3,12 @@ import DealList from './dealList';
 import {View, Text, StyleSheet} from 'react-native';
 import ajax from '../ajax';
 import DealDetail from './dealDetail';
+import SearchBar from './SearchBar';
 
 class App extends Component {
   state = {
     deals: [],
+    dealsFromSearch: [],
     currectDealId: null,
   };
 
@@ -14,6 +16,15 @@ class App extends Component {
     const deals = await ajax.fetchInitalDeals();
     this.setState({deals});
   }
+
+  searchDeals = async (search) => {
+    let dealsFromSearch = [];
+    if (search) {
+      dealsFromSearch = await ajax.fetchDealsSearchresults(search);
+    }
+
+    this.setState({dealsFromSearch});
+  };
 
   setCurrectDeal = (dealId) => {
     this.setState({currectDealId: dealId});
@@ -32,15 +43,24 @@ class App extends Component {
   render() {
     if (this.state.currectDealId) {
       return (
-        <DealDetail
-          initialDealData={this.currectDeal()}
-          onBack={this.unSetCurrectDeal}
-        />
+        <View style={styles.main}>
+          <DealDetail
+            initialDealData={this.currectDeal()}
+            onBack={this.unSetCurrectDeal}
+          />
+        </View>
       );
     }
-    if (this.state.deals.length > 0) {
+    let dealsToDisplay =
+      this.state.dealsFromSearch.length > 0
+        ? this.state.dealsFromSearch
+        : this.state.deals;
+    if (dealsToDisplay.length > 0) {
       return (
-        <DealList deals={this.state.deals} onItemPress={this.setCurrectDeal} />
+        <View style={styles.main}>
+          <SearchBar searchDeals={this.searchDeals} />
+          <DealList deals={dealsToDisplay} onItemPress={this.setCurrectDeal} />
+        </View>
       );
     }
     return (

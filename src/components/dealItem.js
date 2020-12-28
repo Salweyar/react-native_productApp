@@ -32,7 +32,7 @@ class DealItem extends Component {
 const styles = StyleSheet.create({
   deal: {
     marginHorizontal: 12,
-    marginTop: 12,
+    marginTop: 15,
   },
   image: {
     width: '100%',
