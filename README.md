@@ -30,15 +30,15 @@ This is a starter template for react-native mobile app developer
 3. Install react native globally
 
    ```bash
-      npm i -g react-native
-      ```
+   npm i -g react-native
+   ```
 4. start the development server
 
    ```bash
-      react-native run-android or react-native run-ios
-      ```
+   react-native run-android or react-native run-ios
+   ```
       
-#Demo
+##Demo
 
 The app will start from the splase page and then show the products as an examples.
 
