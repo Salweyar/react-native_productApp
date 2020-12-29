@@ -37,3 +37,9 @@ This is a starter template for react-native mobile app developer
    ```bash
       react-native run-android or react-native run-ios
       ```
+      
+#Demo
+
+The app will start from the splase page and then show the products as an examples.
+
+[Show](https://salweyar.github.io/images/productApp/cap.gif)
