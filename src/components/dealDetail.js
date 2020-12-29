@@ -8,6 +8,7 @@ import {
   PanResponder,
   Animated,
   Dimensions,
+  Linking,
 } from 'react-native';
 import {priceDisplay} from '../until';
 import ajax from '../ajax';
@@ -63,6 +64,10 @@ class DealDetail extends Component {
     this.setState({deal: fullDeal});
   }
 
+  openDealurl = () => {
+    Linking.openURL(this.state.deal.url);
+  };
+
   render() {
     const {deal} = this.state;
     return (
@@ -93,6 +98,13 @@ class DealDetail extends Component {
 
         <View style={styles.backLink}>
           <Button onPress={this.props.onBack} color="#0bc2de" title="Back" />
+        </View>
+        <View style={styles.buy}>
+          <Button
+            onPress={this.openDealurl}
+            color="#0bc2de"
+            title="Buy this deal!"
+          />
         </View>
       </>
     );
@@ -165,6 +177,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginHorizontal: 15,
     width: '20%',
+  },
+  buy: {
+    marginTop: 20,
+    marginHorizontal: 15,
   },
 });
 
