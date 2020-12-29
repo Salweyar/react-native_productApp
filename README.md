@@ -42,4 +42,4 @@ This is a starter template for react-native mobile app developer
 
 The app will start from the splase page and then show the products as an examples.
 
-[Show](https://salweyar.github.io/images/productApp/cap.gif)
+(https://salweyar.github.io/images/productApp/cap.gif)
