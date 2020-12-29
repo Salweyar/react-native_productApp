@@ -29,11 +29,11 @@ This is a starter template for react-native mobile app developer
    
 3. Install react native globally
 
-```bash
-   npm i -g react-native
-   ```
+   ```bash
+      npm i -g react-native
+      ```
 4. start the development server
 
-```bash
-   react-native run-android or react-native run-ios
-   ```
+   ```bash
+      react-native run-android or react-native run-ios
+      ```
