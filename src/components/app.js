@@ -6,11 +6,22 @@ import DealDetail from './dealDetail';
 import SearchBar from './SearchBar';
 
 class App extends Component {
+  // titleXPos = new Animated.Value(0);
   state = {
     deals: [],
     dealsFromSearch: [],
     currectDealId: null,
   };
+
+  // animatedTitle = (direction = 1) => {
+  //   const width = Dimensions.get('window').width - 85;
+  //   Animated.spring(this.titleXPos, {
+  //     toValue: direction * (width / 2),
+  //     useNativeDriver: false,
+  //   }).start(() => {
+  //     this.animatedTitle(direction * -1);
+  //   });
+  // };
 
   async componentDidMount() {
     const deals = await ajax.fetchInitalDeals();
