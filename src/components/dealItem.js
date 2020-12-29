@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import {priceDisplay} from '../until';
 
 class DealItem extends Component {
@@ -15,16 +22,18 @@ class DealItem extends Component {
   render() {
     const {deal} = this.props;
     return (
-      <TouchableOpacity onPress={this.handlePress} style={styles.deal}>
-        <Image source={{uri: deal.media[0]}} style={styles.image} />
-        <View style={styles.info}>
-          <Text>{deal.title}</Text>
-          <View style={styles.footer}>
-            <Text style={styles.cause}>{deal.cause.name}</Text>
-            <Text style={styles.price}>{priceDisplay(deal.price)}</Text>
+      <ScrollView>
+        <TouchableOpacity onPress={this.handlePress} style={styles.deal}>
+          <Image source={{uri: deal.media[0]}} style={styles.image} />
+          <View style={styles.info}>
+            <Text>{deal.title}</Text>
+            <View style={styles.footer}>
+              <Text style={styles.cause}>{deal.cause.name}</Text>
+              <Text style={styles.price}>{priceDisplay(deal.price)}</Text>
+            </View>
           </View>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </ScrollView>
     );
   }
 }

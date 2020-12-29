@@ -6,11 +6,17 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: '',
+      search: this.props.initailSearchTerm,
     };
 
-    this.debouncedSearchDeals = debounce(this.props.searchDeals, 300);
+    this.debouncedSearchDeals = debounce(this.searchDeals, 300);
   }
+
+  searchDeals = (search) => {
+    this.props.searchDeals(search);
+    // blur
+    this.inputElement.blur();
+  };
 
   handleChange = (search) => {
     this.setState({search}, () => {
@@ -21,6 +27,10 @@ class SearchBar extends Component {
   render() {
     return (
       <TextInput
+        ref={(inputElement) => {
+          this.inputElement = inputElement;
+        }}
+        value={this.state.search}
         placeholder="Search"
         style={styles.input}
         onChangeText={this.handleChange}

@@ -9,6 +9,7 @@ import {
   Animated,
   Dimensions,
   Linking,
+  ScrollView,
 } from 'react-native';
 import {priceDisplay} from '../until';
 import ajax from '../ajax';
@@ -71,7 +72,10 @@ class DealDetail extends Component {
   render() {
     const {deal} = this.state;
     return (
-      <>
+      <ScrollView>
+        <View style={styles.backLink}>
+          <Button onPress={this.props.onBack} color="#0bc2de" title="Back" />
+        </View>
         <Animated.Image
           {...this.imagePanResponder.panHandlers}
           source={{uri: deal.media[this.state.imageIndex]}}
@@ -96,9 +100,6 @@ class DealDetail extends Component {
           </View>
         </View>
 
-        <View style={styles.backLink}>
-          <Button onPress={this.props.onBack} color="#0bc2de" title="Back" />
-        </View>
         <View style={styles.buy}>
           <Button
             onPress={this.openDealurl}
@@ -106,7 +107,7 @@ class DealDetail extends Component {
             title="Buy this deal!"
           />
         </View>
-      </>
+      </ScrollView>
     );
   }
 }
@@ -176,11 +177,13 @@ const styles = StyleSheet.create({
   backLink: {
     marginTop: 20,
     marginHorizontal: 15,
+    marginVertical: 15,
     width: '20%',
   },
   buy: {
     marginTop: 20,
     marginHorizontal: 15,
+    marginVertical: 15,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import {View, ScrollView, StyleSheet, FlatList} from 'react-native';
 import DealItem from './dealItem';
 
 class DealList extends Component {
@@ -9,14 +9,14 @@ class DealList extends Component {
   }
   render() {
     return (
-      <View style={styles.list}>
+      <ScrollView style={styles.list}>
         <FlatList
           data={this.props.deals}
           renderItem={({item}) => (
             <DealItem deal={item} onPress={this.props.onItemPress} />
           )}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
