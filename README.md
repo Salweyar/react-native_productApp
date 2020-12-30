@@ -12,6 +12,12 @@ This is a starter template for react-native mobile app developer
 -React Native also requires Java SE Development Kit (JDK), 
 -Install Android Studio, Android SDK see the react native docs link above
 
+## Demo
+
+The app will start from the splase page and then show the products as an examples.
+
+![](https://salweyar.github.io/images/productApp/cap.gif)
+
 ## Usage
 
 1. Clone this repo
@@ -38,8 +44,4 @@ This is a starter template for react-native mobile app developer
    react-native run-android or react-native run-ios
    ```
       
-##Demo
 
-The app will start from the splase page and then show the products as an examples.
-
-![](https://salweyar.github.io/images/productApp/cap.gif)
